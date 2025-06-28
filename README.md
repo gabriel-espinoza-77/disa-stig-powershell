@@ -1,1 +1,2 @@
-# disa-stig-powershell
+Applying STIGs with PowerShell
+
