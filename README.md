@@ -17,26 +17,49 @@ Fill out the necessary information like the Name of the scan, Scanner Type, Scan
   <img src="https://github.com/user-attachments/assets/4547ab3b-47d8-4f40-8390-2ca1ac24019e" alt="" width="750"/>
 </p>
 
-Next go to the Credentials section, press Add Credentials, Expand Host option and press Windows
+Next go to the Credentials section, press Add Credentials, Expand Host option and press Windows (This is only applicable if the machine you're working with has a Windows OS). Authentication method will be "Password", then Fill out the Username and Password information, this will be the credentials used for the machine that will be scanned. Then check everything under "Scan-wide Credential Type Settings". Press Save and then move onto the 
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/11919a6a-89ff-4087-9bbc-4ef74ecb86a6" alt="" width="500"/>
-</p>
-
-<p align="center">
   <img src="https://github.com/user-attachments/assets/9147bf50-bf1d-402c-baf5-25d0e33ba1d9" alt="" width="500"/>
+  <img src="https://github.com/user-attachments/assets/b15c1894-7c91-44f7-8610-e7bc59113f98" alt="" width="500"/>
+  <img src="https://github.com/user-attachments/assets/79b8c97c-47f6-4e16-9f8c-682d435c4332" alt="" width="500"/>
+</p>
+
+
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/71323716-f503-4c6e-ae1b-08de36024766" alt="" width="500"/>
 </p>
 
 <p align="center">
+  <img src="" alt="" width="500"/>
+  <img src="" alt="" width="500"/>
   <img src="" alt="" width="500"/>
 </p>
 
 <p align="center">
   <img src="" alt="" width="500"/>
+  <img src="" alt="" width="500"/>
+  <img src="" alt="" width="500"/>
+  <img src="" alt="" width="500"/>
+  <img src="" alt="" width="500"/>
 </p>
 
 <p align="center">
   <img src="" alt="" width="500"/>
+  <img src="" alt="" width="500"/>
+  <img src="" alt="" width="500"/>
 </p>
 
+<p align="center">
+  <img src="" alt="" width="500"/>
+  <img src="" alt="" width="500"/>
+  <img src="" alt="" width="500"/>
+</p>
 
+<p align="center">
+  <img src="" alt="" width="500"/>
+  <img src="" alt="" width="500"/>
+  <img src="" alt="" width="500"/>
+</p>
