@@ -41,11 +41,11 @@ For this scan we will be disabling ALL plugins except Policy Compliance, only fo
   <img src="https://github.com/user-attachments/assets/331dc972-8e87-4732-8600-f0647eee1315" alt="" width="500"/>
 </p>
 
-Go back to the Scan page, and launch the scan we just created. Make sure your device is on while the scan is going.
+Go back to the Scan page, and launch the scan we just created. Make sure your device is on while the scan is going. Go to the page of the scan you created, 
 
 <p align="center">
-  <img src="" alt="" width="500"/>
-  <img src="" alt="" width="500"/>
+  <img src="https://github.com/user-attachments/assets/420a151b-04ce-49cf-9d97-f566f3dc7716" alt="" width="500"/>
+  <img src="https://github.com/user-attachments/assets/765ee59e-e43c-4bcf-9eb4-0fb5d07dd64a" alt="" width="500"/>
   <img src="" alt="" width="500"/>
   <img src="" alt="" width="500"/>
   <img src="" alt="" width="500"/>
