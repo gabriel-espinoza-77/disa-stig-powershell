@@ -46,7 +46,7 @@ Go back to the Scan page, and launch the scan we just created. Make sure your de
 <p align="center">
   <img src="https://github.com/user-attachments/assets/420a151b-04ce-49cf-9d97-f566f3dc7716" alt="" width="500"/>
   <img src="https://github.com/user-attachments/assets/765ee59e-e43c-4bcf-9eb4-0fb5d07dd64a" alt="" width="1000"/>
-  <img src="https://github.com/user-attachments/assets/e17a0423-1af4-4eda-86c6-9c6673cc06e7" alt="" width="500"/>
+  <img src="https://github.com/user-attachments/assets/4603d299-0cb5-42b3-8fb3-99206bc4770f" alt="" width="500"/>
   <img src="" alt="" width="500"/>
   <img src="" alt="" width="500"/>
 </p>
@@ -89,7 +89,7 @@ The description of the STIG says "The Application event log size must be configu
 To verify the remediation of the WN10-AU-000500 STIG, scan the device again using Tenable. As you can see, the STIG has passed after manuelly remediating it.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/f33060e7-e623-41f6-97c1-37341ca95bef" alt="" width="500"/>
+  <img src="https://github.com/user-attachments/assets/c766e0b7-de07-483a-8562-6799eecaf6b8" alt="" width="500"/>
 </p>
 
 Windows Registry Editor Version 5.00
@@ -100,11 +100,13 @@ Windows Registry Editor Version 5.00
 Now we want to implement the fix using PowerShell. Undo the manuel remediation by deleting the EventLog directory we created in Registry Editor. Im going to rescan the device to show that the STIG is failing again.
 
 <p align="center">
-  <img src="" alt="" width="500"/>
+  <img src="https://github.com/user-attachments/assets/ea2a42db-1c4e-4f24-bd1e-a598da9b7773" alt="" width="500"/>
   <img src="" alt="" width="500"/>
   <img src="" alt="" width="500"/>
   <img src="" alt="" width="500"/>
 </p>
+
+
 
 <p align="center">
   <img src="" alt="" width="500"/>
