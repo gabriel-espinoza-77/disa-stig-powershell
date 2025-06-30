@@ -59,7 +59,7 @@ If we use the `stigaview` website, it says why this STIG exists, it has a sectio
   <img src="" alt="" width="500"/>
 </p>
 
-First, were going to check if the registry value needed to these event logs exists. Open run view, search "regedit" and navigate through `HKEY_LOCAL_MACHINE` until you get here `\SOFTWARE\Policies\Microsoft\Windows`. If you see the "EventLog" directory nothing needs to be done here. But on my machine there seems to be no EventLog directory so i will create one.
+First, were going to check if the registry value needed to these event logs exists. Open run view, search "regedit", the Registry Editor application will open. We want to navigate through `HKEY_LOCAL_MACHINE` until you get here `\SOFTWARE\Policies\Microsoft\Windows`. If you see the "EventLog" directory nothing needs to be done here. But on my machine there seems to be no EventLog directory so i will create one.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d8ff589c-180e-4b18-9262-2a24feb72e2e" alt="" width="500"/>
@@ -67,7 +67,7 @@ First, were going to check if the registry value needed to these event logs exis
   <img src="https://github.com/user-attachments/assets/ee36da23-60f5-49a7-8d23-5062774eacf9" alt="" width="500"/>
 </p>
 
-Now create a new key named "EventLog", and inside the EventLog create a new key called "Application", and inside Application create a DWORD value called MaxSize. Now for the MaxSize value we will give it a decimal value of 32768 or greater because of how t
+Now create a new key named "EventLog", and inside the EventLog create a new key called "Application", and inside Application create a DWORD value called MaxSize. Now for the MaxSize value we will give it a decimal value of 32768. Now the applications logs size is the size that it should be. The STIG has now manuelly been remediated.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/7247c49a-dda3-46a3-8170-80d08c81e615" alt="" width="500"/>
@@ -77,20 +77,27 @@ Now create a new key named "EventLog", and inside the EventLog create a new key 
   <img src="https://github.com/user-attachments/assets/65182428-487f-4892-b636-e308095b7926" alt="" width="500"/>
 </p>
 
+<!--
 The description of the STIG says "The Application event log size must be configured to 32768 KB or greater." So now that we know the fix using the `stigaview` site, we get on the device were working on, open the Run view, and type "eventvwr.msc" to open up the event viewer.Now we expland Windows Logs, right click on Application, press properties and adjust the Maximum log size 
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/7bbbec45-bcfb-44aa-8bd1-cbe0b3f50e0d" alt="" width="500"/>
   <img src="https://github.com/user-attachments/assets/6ec594f7-ab4e-481b-bbe0-c90b03587d7a" alt="" width="500"/>
 </p>
+-->
 
+To verify the remediation of the WN10-AU-000500 STIG, scan the device again using Tenable. As you can see, the STIG has passed after manuelly remediating it.
 
 <p align="center">
-  <img src="" alt="" width="500"/>
-  <img src="" alt="" width="500"/>
-  <img src="" alt="" width="500"/>
-  <img src="" alt="" width="500"/>
+  <img src="https://github.com/user-attachments/assets/f33060e7-e623-41f6-97c1-37341ca95bef" alt="" width="500"/>
 </p>
+
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EventLog\Application]
+"MaxSize"=dword:00008000
+
+Now we want to implement the fix using PowerShell. Undo the manuel remediation by deleting the EventLog directory we created in Registry Editor. Im going to rescan the device to show that the STIG is failing again.
 
 <p align="center">
   <img src="" alt="" width="500"/>
