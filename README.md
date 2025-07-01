@@ -6,7 +6,7 @@ The process reflects practical skills in vulnerability scanning, STIG interpreta
 
 ---
 
-## Overview of the Environment
+## Tenable Scan Creation
 
 For this demonstration, a virtual machine named `io-test-vm` was purposefully misconfigured by disabling its Windows Firewall to simulate a vulnerable state. Once prepared, the machine was scanned using **Tenable Vulnerability Management**, which produced a list of failed security controls, including several STIG findings.
 
