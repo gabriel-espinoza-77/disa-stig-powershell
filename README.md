@@ -141,12 +141,14 @@ Open Windows PowerShell ISE in Adminstrator mode, paste and run the code provide
   <img src="" alt="" width="500"/>
 </p>
 
-Run the Tenable Scan again to make sure the STIG was remediated this time with the PowerShell script. Looking at the details of the scan, the STIG has successfully passed the scan concluding this as a remediated STIG. **CREATE A STIGS FOLDER**
+Run the Tenable Scan again to make sure the STIG was remediated this time with the PowerShell script. Looking at the details of the scan, the STIG has successfully passed the scan concluding this as a remediated STIG. And if you can check the output of the devices audit for the STIG, it shows the 32768 decimal value.
+
+**CREATE A STIGS FOLDER**
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/b6d5672e-3514-4610-b684-ee830e08495d" alt="" width="500"/>
   <img src="https://github.com/user-attachments/assets/aaa25de2-105a-4978-ae49-cf3d1d8f9396" alt="" width="500"/>
-  <img src="" alt="" width="500"/>
+  <img src="https://github.com/user-attachments/assets/de17c7ba-9e37-42b7-8765-45395abb8757" alt="" width="500"/>
   <img src="" alt="" width="500"/>
 </p>
 
