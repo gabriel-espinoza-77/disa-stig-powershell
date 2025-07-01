@@ -1,4 +1,4 @@
-Applying STIGs with PowerShell
+Applying STIGs manually and PowerShell
 
 I will be using Tenable to scan a VM and remediate failed STIGs that become visible from the Scan. This is used to show my skills with Tenable and to help anyone trying to remeidate any failed STIGs on their endpoints.
 
@@ -106,11 +106,46 @@ Now we want to implement the fix using PowerShell. Undo the manuel remediation b
   <img src="" alt="" width="500"/>
 </p>
 
-
+Next, we want to export the `Application` registry key to obtain its configuration data. Once exported, we can use ChatGPT to help convert the `.reg` file contents into a PowerShell script that replicates the same settings.
 
 <p align="center">
+  <img src="https://github.com/user-attachments/assets/c3b49cd1-37c0-4d22-a440-0acd48e5f26b" alt="" width="500"/>
+  <img src="https://github.com/user-attachments/assets/83841823-c292-4ca1-89f4-b96c78842d01" alt="" width="500"/>
+  <img src="https://github.com/user-attachments/assets/f25a7ebf-bcb7-4d4f-8941-559d3f5a334c" alt="" width="500"/>
+  <img src="" alt="" width="500"/>
+</p>
+
+```powershell
+# Set MaxSize to 0x8000 (32,768 bytes) for Application Event Log
+$registryPath = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\Application"
+$name = "MaxSize"
+$value = 0x8000
+
+# Check if the registry key exists; create it if it doesn't
+if (-not (Test-Path $registryPath)) {
+    New-Item -Path $registryPath -Force | Out-Null
+}
+
+# Set the registry value
+Set-ItemProperty -Path $registryPath -Name $name -Value $value -Type DWord
+
+Write-Host "Registry setting applied: $registryPath\$name = 0x$value"
+```
+
+Open Windows PowerShell ISE in Adminstrator mode, paste and run the code provided by ChatGPT. ONce ran, open Registry Editor and you will see the EventLog directory.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c9c4ad29-5e82-469e-af0e-dddb7cc0424f" alt="" width="700"/>
+  <img src="https://github.com/user-attachments/assets/cdcc0ae9-13c5-4103-aaa5-20af02beb5e7" alt="" width="500"/>
   <img src="" alt="" width="500"/>
   <img src="" alt="" width="500"/>
+</p>
+
+Run the Tenable Scan again to make sure the STIG was remediated this time with the PowerShell script. Looking at the details of the scan, the STIG has successfully passed the scan concluding this as a remediated STIG. **CREATE A STIGS FOLDER**
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b6d5672e-3514-4610-b684-ee830e08495d" alt="" width="500"/>
+  <img src="https://github.com/user-attachments/assets/aaa25de2-105a-4978-ae49-cf3d1d8f9396" alt="" width="500"/>
   <img src="" alt="" width="500"/>
   <img src="" alt="" width="500"/>
 </p>
@@ -122,16 +157,6 @@ Now we want to implement the fix using PowerShell. Undo the manuel remediation b
   <img src="" alt="" width="500"/>
 </p>
 
-<p align="center">
-  <img src="" alt="" width="500"/>
-  <img src="" alt="" width="500"/>
-  <img src="" alt="" width="500"/>
-  <img src="" alt="" width="500"/>
-</p>
+---
 
-<p align="center">
-  <img src="" alt="" width="500"/>
-  <img src="" alt="" width="500"/>
-  <img src="" alt="" width="500"/>
-  <img src="" alt="" width="500"/>
-</p>
+Author: Gabriel Espinoza
