@@ -1,28 +1,26 @@
 # STIG Remediation with Tenable
 
-This project demonstrates how STIG (Security Technical Implementation Guide) findings identified through Tenable scans can be manually remediated on a Windows virtual machine within Microsoft Azure. It combines vulnerability assessment, registry configuration, and automation using PowerShell to simulate a structured endpoint hardening workflow.
+This project demonstrates how STIG (Security Technical Implementation Guide) findings identified through Tenable scans can be manually and automatically remediated on a Windows virtual machine. The process displays practical skills in Tenable vulnerability scanning, STIG understanding, manual remediation, and scripted automation. It is ideal to perform such tasks to support system hardening and minimize the attack surface for Window environments.
 
-The process reflects practical skills in vulnerability scanning, STIG interpretation, manual remediation through Registry Editor, and scripted automation. It is ideal for security professionals or system administrators working to maintain secure baselines in Windows environments.
+For this demonstration, a virtual machine named `io-test-vm` was intentially configured to simulate a vulnerable state by disabling its Windows Firewall. Once prepared, the machine was scanned using **Tenable Vulnerability Management**.
 
 ---
 
 ## Tenable Scan Creation
 
-For this demonstration, a virtual machine named `io-test-vm` was purposefully misconfigured by disabling its Windows Firewall to simulate a vulnerable state. Once prepared, the machine was scanned using **Tenable Vulnerability Management**, which produced a list of failed security controls, including several STIG findings.
-
 To initiate the scan, an **Advanced Network Scan** was created within the Tenable portal.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c33b28c0-687d-4763-ab3c-bd71de8db2f0" alt="Advanced Network Scan - Step 1" width="500"/>
-  <img src="https://github.com/user-attachments/assets/d20755d9-7c55-43ff-9f03-f4c1f4732a0d" alt="Advanced Network Scan - Step 2" width="500"/>
-  <img src="https://github.com/user-attachments/assets/9e37b1a8-21c9-4bba-83e4-054f9dce86da" alt="Advanced Network Scan - Step 3" width="500"/>
+  <img src="https://github.com/user-attachments/assets/c33b28c0-687d-4763-ab3c-bd71de8db2f0" alt="Advanced Network Scan - Step 1" width="400"/>
+  <img src="https://github.com/user-attachments/assets/d20755d9-7c55-43ff-9f03-f4c1f4732a0d" alt="Advanced Network Scan - Step 2" width="200"/>
+  <img src="https://github.com/user-attachments/assets/9e37b1a8-21c9-4bba-83e4-054f9dce86da" alt="Advanced Network Scan - Step 3" width="450"/>
 </p>
 
 ---
 
-## Configuring the Scan for Windows STIG Evaluation
+## Configuration the Scan
 
-With the scan created, key fields such as scan name, scanner, and target IP were configured. The scan targeted the internal IP address of the virtual machine.
+With the scan created, key fields such as scan name, scanner, and target IP were configured. The scan targeted the private IP address of the virtual machine `io-test-vm`.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/4547ab3b-47d8-4f40-8390-2ca1ac24019e" alt="Scan Target Configuration" width="750"/>
