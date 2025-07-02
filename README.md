@@ -2,7 +2,7 @@
 
 This project demonstrates how STIG (Security Technical Implementation Guide) findings identified through Tenable scans can be manually and automatically remediated on a Windows virtual machine. The process displays practical skills in Tenable vulnerability scanning, STIG understanding, manual remediation, and scripted automation. It is ideal to perform such tasks to support system hardening and minimize the attack surface for Window environments.
 
-For this demonstration, a virtual machine named `io-test-vm` was intentially configured to simulate a vulnerable state by disabling its Windows Firewall. Once prepared, the machine was scanned using **Tenable Vulnerability Management**.
+For this demonstration, a virtual machine named `io-test-vm` running on Windows 10 was intentially configured to simulate a vulnerable state by disabling its Windows Firewall. Once prepared, the machine was scanned using **Tenable Vulnerability Management**.
 
 ---
 
@@ -26,20 +26,20 @@ With the scan created, key fields such as scan name, scanner, and target IP were
   <img src="https://github.com/user-attachments/assets/4547ab3b-47d8-4f40-8390-2ca1ac24019e" alt="Scan Target Configuration" width="750"/>
 </p>
 
-Authentication credentials were added to enable full compliance auditing. Under **Host > Windows**, credentials for the Windows account were supplied and all relevant settings under *Scan-wide Credential Type Settings* were enabled.
+For full compliance auditing, authentication credentials were added. Under **Host > Windows**, credentials for the Windows account were supplied and all relevant settings under *Scan-wide Credential Type Settings* were enabled.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/11919a6a-89ff-4087-9bbc-4ef74ecb86a6" alt="Credential Setup 1" width="500"/>
+  <img src="https://github.com/user-attachments/assets/11919a6a-89ff-4087-9bbc-4ef74ecb86a6" alt="Credential Setup 1" width="400"/>
   <img src="https://github.com/user-attachments/assets/9147bf50-bf1d-402c-baf5-25d0e33ba1d9" alt="Credential Setup 2" width="500"/>
   <img src="https://github.com/user-attachments/assets/b15c1894-7c91-44f7-8610-e7bc59113f98" alt="Credential Setup 3" width="500"/>
 </p>
 
-The **Compliance** section was configured next by selecting the `Windows 10 STIG v3r4` audit file.
+The **Compliance** section was configured next by selecting the `Windows 10 STIG v3r4` audit version.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/71323716-f503-4c6e-ae1b-08de36024766" alt="Compliance Audit Search" width="500"/>
-  <img src="https://github.com/user-attachments/assets/9475498a-b9fd-45dc-baed-42a706166843" alt="Compliance Parameters" width="500"/>
-  <img src="https://github.com/user-attachments/assets/7054b043-6983-4390-80c3-c8a921c49407" alt="Compliance Audit Save" width="500"/>
+  <img src="https://github.com/user-attachments/assets/71323716-f503-4c6e-ae1b-08de36024766" alt="Compliance Audit Search" width="350"/>
+  <img src="https://github.com/user-attachments/assets/9475498a-b9fd-45dc-baed-42a706166843" alt="Compliance Parameters" width="450"/>
+  <img src="https://github.com/user-attachments/assets/7054b043-6983-4390-80c3-c8a921c49407" alt="Compliance Audit Save" width="250"/>
 </p>
 
 To focus exclusively on STIG compliance, all plugin categories were disabled except **Policy Compliance**, and within that, only *Windows Compliance Checks* were enabled.
