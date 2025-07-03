@@ -54,7 +54,7 @@ To focus exclusively on policy compliance, all plugin categories were disabled e
 
 ## Investigating and Remediating a Failed STIG
 
-Upon scan completion, the **Audit** tab within the scan details revealed many failed compliance checks. One particular finding, `WN10-AU-000500`, pertains to the size configuration of the Application Event Log.
+Upon scan completion, the **Audit** tab within the scan details revealed many failed compliance checks. One particular finding, `WN10-AU-000500`, pertains to the size configuration of the Application Event Log and will serve as the primary focus in this remediation.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/420a151b-04ce-49cf-9d97-f566f3dc7716" alt="Audit Failure - WN10-AU-000500" width="500"/>
@@ -62,18 +62,19 @@ Upon scan completion, the **Audit** tab within the scan details revealed many fa
   <img src="https://github.com/user-attachments/assets/4603d299-0cb5-42b3-8fb3-99206bc4770f" alt="Audit Severity Breakdown" width="500"/>
 </p>
 
-The STIG description recommends that the Application event log size be configured to **32,768 KB or greater**. Using STIG viewer resources and manual investigation, it was determined that this setting is controlled through a registry value.
+The STIG description recommends that the Application event log size must be configured to **32,768 KB or greater**. Using STIG viewer resources and manual investigation, it was determined that this setting is controlled through a registry value.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/70c1eeb5-f15d-4a20-83d5-3feb9cd65e03" alt="STIG Viewer - WN10-AU-000500 Explanation" width="1000"/>
 </p>
 
-Navigating to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows`, it was observed that the `EventLog\Application` subkey did not exist. It was manually created along with a `MaxSize` DWORD value set to `32768` in decimal.
+Navigating to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows`, it was observed that the `EventLog\Application` subkey did not exist. Manual creation of the subkey was required, along with configuring the `MaxSize` DWORD value to `32768` (decimal).
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d8ff589c-180e-4b18-9262-2a24feb72e2e" alt="Registry Key Navigation" width="500"/>
   <img src="https://github.com/user-attachments/assets/7247c49a-dda3-46a3-8170-80d08c81e615" alt="Creating EventLog and MaxSize" width="500"/>
   <img src="https://github.com/user-attachments/assets/1792e852-5a42-434a-9829-7d397168abc2" alt="Registry Value Set" width="500"/>
+  <img src="https://github.com/user-attachments/assets/72eb6b27-2349-446d-892e-943e153ea64d" alt="" width="300"/>
 </p>
 
 After this manual remediation, the scan was re-run and confirmed the STIG had passed.
@@ -81,14 +82,6 @@ After this manual remediation, the scan was re-run and confirmed the STIG had pa
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c766e0b7-de07-483a-8562-6799eecaf6b8" alt="STIG Passed after Registry Fix" width="500"/>
 </p>
-
-> 🔁 **Reminder:** Save the following `.reg` data in a `.txt` file to preserve the registry configuration:
-> ```
-> Windows Registry Editor Version 5.00
-> 
-> [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EventLog\Application]
-> "MaxSize"=dword:00008000
-> ```
 
 ---
 
@@ -101,6 +94,14 @@ To further demonstrate scalability, the manual remediation was undone, and the r
 </p>
 
 To replicate the correct configuration, the `Application` registry key was exported and converted into a scriptable format.
+
+> This is the exported data from the registry key:
+> ```
+> Windows Registry Editor Version 5.00
+> 
+> [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EventLog\Application]
+> "MaxSize"=dword:00008000
+> ```
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c3b49cd1-37c0-4d22-a440-0acd48e5f26b" alt="Exporting Registry Key" width="500"/>
