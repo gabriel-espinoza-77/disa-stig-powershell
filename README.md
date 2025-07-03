@@ -18,7 +18,7 @@ To initiate the scan, an **Advanced Network Scan** was created within the Tenabl
 
 ---
 
-## Configuration the Scan
+## Configurating the Scan
 
 With the scan created, key fields such as scan name, scanner, and target IP were configured. The scan targeted the private IP address of the virtual machine `io-test-vm`.
 
@@ -42,12 +42,12 @@ The **Compliance** section was configured next by selecting the `Windows 10 STIG
   <img src="https://github.com/user-attachments/assets/7054b043-6983-4390-80c3-c8a921c49407" alt="Compliance Audit Save" width="250"/>
 </p>
 
-To focus exclusively on STIG compliance, all plugin categories were disabled except **Policy Compliance**, and within that, only *Windows Compliance Checks* were enabled.
+To focus exclusively on policy compliance, all plugin categories were disabled except **Policy Compliance**, and within that, only *Windows Compliance Checks* were enabled.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/85bca885-6ef5-43e7-9077-2ab22379b0be" alt="Plugin Configuration Overview" width="1000"/>
-  <img src="https://github.com/user-attachments/assets/66569bd3-3e06-4c43-9b5b-da7921cbd4d9" alt="Policy Plugin Enabled" width="500"/>
-  <img src="https://github.com/user-attachments/assets/331dc972-8e87-4732-8600-f0647eee1315" alt="Plugin Mixed Status" width="500"/>
+  <img src="https://github.com/user-attachments/assets/66569bd3-3e06-4c43-9b5b-da7921cbd4d9" alt="Policy Plugin Enabled" width="300"/>
+  <img src="https://github.com/user-attachments/assets/331dc972-8e87-4732-8600-f0647eee1315" alt="Plugin Mixed Status" width="300"/>
 </p>
 
 ---
