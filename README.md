@@ -54,7 +54,7 @@ To focus exclusively on policy compliance, all plugin categories were disabled e
 
 ## Investigating and Remediating a Failed STIG
 
-Upon scan completion, the **Audit** tab surfaced failed compliance checks. One such finding was `WN10-AU-000500`, which pertains to the size configuration of the Application Event Log.
+Upon scan completion, the **Audit** tab within the scan details revealed many failed compliance checks. One particular finding, `WN10-AU-000500`, pertains to the size configuration of the Application Event Log.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/420a151b-04ce-49cf-9d97-f566f3dc7716" alt="Audit Failure - WN10-AU-000500" width="500"/>
