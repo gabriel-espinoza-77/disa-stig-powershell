@@ -52,7 +52,7 @@ To focus exclusively on policy compliance, all plugin categories were disabled e
 
 ---
 
-## Investigating and Remediating a Failed STIG
+## Investigating and Remediating Failed STIG `WN10-AU-000500`
 
 Upon scan completion, the **Audit** tab within the scan details revealed many failed compliance checks. One particular finding, `WN10-AU-000500`, pertains to the size configuration of the Application Event Log and will serve as the primary focus in this remediation.
 
@@ -62,13 +62,13 @@ Upon scan completion, the **Audit** tab within the scan details revealed many fa
   <img src="https://github.com/user-attachments/assets/4603d299-0cb5-42b3-8fb3-99206bc4770f" alt="Audit Severity Breakdown" width="500"/>
 </p>
 
-The STIG description recommends that the Application event log size must be configured to **32,768 KB or greater**. Using STIG viewer resources and manual investigation, it was determined that this setting is controlled through a registry value.
+The STIG description recommends that the Application event log size must be configured to **32,768 KB or greater**. This setting can be managed through the Windows Registry Editor.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/70c1eeb5-f15d-4a20-83d5-3feb9cd65e03" alt="STIG Viewer - WN10-AU-000500 Explanation" width="1000"/>
 </p>
 
-Navigating to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows`, it was observed that the `EventLog\Application` subkey did not exist. Manual creation of the subkey was required, along with configuring the `MaxSize` DWORD value to `32768` (decimal).
+Navigating to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows`in the Registry Editor, it was observed that the `EventLog\Application` subkey did not exist. Manual creation of the subkey was required, along with configuring the `MaxSize` DWORD value to `32768` (decimal).
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d8ff589c-180e-4b18-9262-2a24feb72e2e" alt="Registry Key Navigation" width="500"/>
@@ -87,15 +87,15 @@ After this manual remediation, the scan was re-run and confirmed the STIG had pa
 
 ## Automating the Fix with PowerShell
 
-To further demonstrate scalability, the manual remediation was undone, and the registry key was programmatically recreated using PowerShell. The scan results once again showed a failed STIG status.
+The manual remediation was undone and the scan results once again showed a failed STIG status.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/ea2a42db-1c4e-4f24-bd1e-a598da9b7773" alt="STIG Failed after Reset" width="500"/>
 </p>
 
-To replicate the correct configuration, the `Application` registry key was exported and converted into a scriptable format.
+To demonstrate automation, the registry key was programmatically recreated using PowerShell. To replicate the correct configuration, the `Application` registry key was exported and converted into a scriptable format using ChatGPT.
 
-> This is the exported data from the registry key:
+Below is the exported data from the registry key:
 > ```
 > Windows Registry Editor Version 5.00
 > 
@@ -104,7 +104,7 @@ To replicate the correct configuration, the `Application` registry key was expor
 > ```
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c3b49cd1-37c0-4d22-a440-0acd48e5f26b" alt="Exporting Registry Key" width="500"/>
+  <img src="https://github.com/user-attachments/assets/c3b49cd1-37c0-4d22-a440-0acd48e5f26b" alt="Exporting Registry Key" width="250"/>
   <img src="https://github.com/user-attachments/assets/f25a7ebf-bcb7-4d4f-8941-559d3f5a334c" alt="Preparing for Automation" width="500"/>
 </p>
 
@@ -112,21 +112,22 @@ The script was executed in **PowerShell ISE** running in Administrator mode. Upo
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c9c4ad29-5e82-469e-af0e-dddb7cc0424f" alt="PowerShell Execution Success" width="700"/>
-  <img src="https://github.com/user-attachments/assets/cdcc0ae9-13c5-4103-aaa5-20af02beb5e7" alt="Registry Key Recreated via Script" width="500"/>
+  <img src="https://github.com/user-attachments/assets/cdcc0ae9-13c5-4103-aaa5-20af02beb5e7" alt="Registry Key Recreated via Script" width="200"/>
 </p>
 
 A final scan was run to validate that the PowerShell-based remediation resolved the STIG, confirming the setting was properly enforced across the system.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/b6d5672e-3514-4610-b684-ee830e08495d" alt="Final Scan - STIG Passed via Script" width="500"/>
-  <img src="https://github.com/user-attachments/assets/de17c7ba-9e37-42b7-8765-45395abb8757" alt="Audit Output - STIG Resolved" width="500"/>
+  <img src="https://github.com/user-attachments/assets/b6d5672e-3514-4610-b684-ee830e08495d" alt="Final Scan - STIG Passed via Script" width="250"/>
+  <img src="https://github.com/user-attachments/assets/77799e3d-0cdc-4bf1-9e7b-2a047449ced7" alt="" width="500"/>
+  <img src="https://github.com/user-attachments/assets/de17c7ba-9e37-42b7-8765-45395abb8757" alt="Audit Output - STIG Resolved" width="200"/>
 </p>
 
 ---
 
 ## Conclusion
 
-This project illustrates how Tenable can be used not only to identify STIG compliance gaps in Windows machines, but also to guide remediation using both manual registry edits and automated scripting. This dual-path approach enables scalable, auditable, and repeatable compliance enforcement across enterprise environments.
+This project highlights how DISA STIG findings on Windows systems can be remediated both manually and through automation using available tools. Tenable was crucial in identifying compliance weaknesses, allowing targeted configuration changes through manual edits or PowerShell. This ensures Windows systems are configured in accordance with security best practices and remain compliant to DISA STIG standards.
 
 ---
 
