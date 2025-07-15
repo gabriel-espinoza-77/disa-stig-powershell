@@ -132,29 +132,3 @@ This project highlights how DISA STIG findings on Windows systems can be remedia
 ---
 
 **Author:** Gabriel Espinoza
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
